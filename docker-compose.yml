@@ -1,0 +1,8 @@
+version: "3"
+services:
+  web:
+    build: .
+    image: "aabishkar/node-demo:latest"
+    network_mode: "bridge"
+    ports:
+      - "4000:4000"
