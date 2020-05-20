@@ -19,4 +19,4 @@ deploy:
     - mv ./kubectl /usr/local/bin/kubectl
     - docker build --no-cache -t ${DOCKER_IMAGE} .
     - docker push ${DOCKER_IMAGE}
-    - kubectl -f apply k8s/deployment.yaml --kubeconfig=$HOME/etc/deploy/config # kubernetes apply
+    - kubectl apply -f k8s/deployment.yaml --kubeconfig=$HOME/etc/deploy/config # kubernetes apply
