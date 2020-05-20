@@ -16,4 +16,4 @@ COPY --chown=node:node . .
 
 EXPOSE $PORT
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "src/index.js" ]

@@ -6,6 +6,7 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   KUBE_CONFIG_FILE: /etc/deploy/config
+  DOCKER_IMAGE: aabishkar/node
 deploy:
   stage: deploy
   script:
@@ -16,6 +17,6 @@ deploy:
     - curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl # Download kubectl binary
     - chmod +x ./kubectl
     - mv ./kubectl /usr/local/bin/kubectl
-    - curl -Lo skaffold https://storage.googleapis.com/skaffold/builds/latest/skaffold-linux-amd64 # Download skaffold binary
-    - chmod +x skaffold
-    - ./skaffold run --kubeconfig /etc/deploy/config # actual build, tag, push and deploy command
+    - docker build --no-cache -t ${DOCKER_IMAGE} .
+    - docker push ${DOCKER_IMAGE}
+    - kubectl -f apply k8s/deployment.yaml --kubeconfig /etc/deploy/config # kubernetes apply
