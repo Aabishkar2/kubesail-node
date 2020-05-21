@@ -3,7 +3,7 @@ var app = express();
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get("/", function (req, res) {
-  res.send("Hello sanjay dai");
+  res.send("Yeah! Finally the ci/cd is running on kubernetes");
 });
 
 app.listen(4000, function () {
