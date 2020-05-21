@@ -24,8 +24,8 @@ spec:
         io.kompose.service: web
     spec:
       containers:
-        - image: aabishkar/node-demo:latest
-          imagePullPolicy: ""
+        - image: aabishkar/node-demo:545
+          imagePullPolicy: Always
           name: web
           ports:
             - containerPort: 4000
