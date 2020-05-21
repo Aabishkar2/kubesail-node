@@ -6,7 +6,7 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
   KUBE_CONFIG_FILE: /etc/deploy/config
-  DOCKER_IMAGE: aabishkar/node
+  DOCKER_IMAGE: aabishkar/node:latest
 deploy:
   stage: deploy
   script:
